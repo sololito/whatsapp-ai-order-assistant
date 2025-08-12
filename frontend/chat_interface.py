@@ -61,8 +61,10 @@ class SmartShopBot:
             f"👋 Hello {user.first_name}! Welcome to SmartShop Bot.\n\n"
             "Where you can make an order at your own convenience and we deliver or pass by at your preferred time.\n\n"
             "*How to order:*\n"
-            "Just list the items with quantities you'd like to order. For example:\n"
-            "`2 loaves of bread and 1kg sugar`\n\n"
+            "• Just list the items with quantities you'd like to order. For example:\n"
+            "  `2 loaves of bread and 1kg sugar`\n\n"
+            "• To see what's available, ask:\n"
+            "  `What items do you have?` or `Show me your products`\n\n"
             "We'll check availability and guide you through the process."
         )
         # Initialize or update user session
@@ -81,7 +83,18 @@ class SmartShopBot:
     async def handle_message(self, update: Update, context: CallbackContext) -> None:
         """Handle incoming messages and process orders."""
         user_id = update.effective_user.id
-        message_text = update.message.text.strip().lower()
+        message_text = update.message.text.strip()
+        
+        # Check for inventory listing requests
+        if any(phrase in message_text.lower() for phrase in [
+            'what do you have', 'what items do you have', 'what\'s available', 'show me your items',
+            'what can i buy', 'list products', 'show inventory', 'what\'s in stock'
+        ]):
+            available_items = self.inventory.get_available_items()
+            await update.message.reply_text(available_items)
+            return
+            
+        message_text = message_text.lower()
         
         # Initialize user session if not exists
         if user_id not in self.user_sessions:

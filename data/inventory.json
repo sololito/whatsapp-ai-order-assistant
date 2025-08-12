@@ -134,7 +134,7 @@
     },
     {
       "name": "Fish",
-      "quantity": 20,
+      "quantity": 18.0,
       "price": 700.0,
       "unit": "1kg",
       "category": "Seafood"

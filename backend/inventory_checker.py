@@ -25,6 +25,39 @@ class InventoryChecker:
             normalized = normalized.replace(unit, '').strip()
         return normalized
 
+    def get_available_items(self) -> str:
+        """
+        Get a formatted string of all available items and their prices
+        
+        Returns:
+            str: Formatted string listing available items and prices
+        """
+        if not self.inventory.get('items'):
+            return "No items available at the moment."
+            
+        items_list = []
+        for item in self.inventory['items']:
+            if item.get('quantity', 0) > 0:  # Only include items with quantity > 0
+                item_name = item['name']
+                price = item.get('price', 0)
+                unit = item.get('unit', '')
+                
+                # Handle items with variations
+                if 'variations' in item and len(item['variations']) > 0:
+                    item_name = f"{item_name} ({', '.join(item['variations'])})"
+                
+                # Format the price with currency
+                price_str = f"KSh {price:,.2f}"
+                if unit:
+                    price_str = f"{price_str} per {unit}"
+                
+                items_list.append(f"• {item_name}: {price_str}")
+        
+        if not items_list:
+            return "No items available at the moment."
+            
+        return "Here's what we have in stock:\n\n" + "\n".join(items_list)
+
     def _find_matching_item(self, item_name: str):
         """Find the best matching item in inventory"""
         normalized_input = self._normalize_item_name(item_name)
@@ -47,7 +80,6 @@ class InventoryChecker:
                     if normalized_input in self._normalize_item_name(variation) or \
                        self._normalize_item_name(variation) in normalized_input:
                         return item
-        
         return None
 
     def check_availability(self, items: List[Tuple[str, float]]) -> Dict:

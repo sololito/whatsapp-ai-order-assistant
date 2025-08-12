@@ -1,0 +1,17 @@
+{
+    "shop_name": "SmartShop Corner",
+    "address": "123 Main Street, Nairobi",
+    "phone": "+254700123456",
+    "email": "info@smartshop.com",
+    "shopkeeper_phone": "+254712345678",
+    "delivery_fees": {
+        "nairobi cbd": 100.0,
+        "westlands": 150.0,
+        "karen": 200.0,
+        "default": 250.0
+    },
+    "business_hours": {
+        "weekdays": "8:00 AM - 8:00 PM",
+        "weekends": "9:00 AM - 6:00 PM"
+    }
+}

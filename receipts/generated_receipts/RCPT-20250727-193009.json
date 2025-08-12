@@ -1,0 +1,47 @@
+{
+  "receipt_id": "RCPT-20250727-193009",
+  "date": "2025-07-27 19:30:09",
+  "customer": null,
+  "items": [
+    {
+      "name": "Bread",
+      "quantity": 3.0,
+      "price": 50.0,
+      "total": 150.0,
+      "unit": "unit"
+    },
+    {
+      "name": "Sugar",
+      "quantity": 2.0,
+      "price": 120.0,
+      "total": 240.0,
+      "unit": "1kg"
+    }
+  ],
+  "subtotal": 390.0,
+  "delivery_fee": 0,
+  "total": 390.0,
+  "payment_method": "M-Pesa",
+  "payment_status": "completed",
+  "delivery_option": {
+    "option": "delivery",
+    "address": "123, moi avenue,\napartment 4b,\nnext to central mall,\nnairobi,\n00100"
+  },
+  "shop_info": {
+    "shop_name": "SmartShop Corner",
+    "address": "123 Main Street, Nairobi",
+    "phone": "+254700123456",
+    "email": "info@smartshop.com",
+    "shopkeeper_phone": "+254712345678",
+    "delivery_fees": {
+      "nairobi cbd": 100.0,
+      "westlands": 150.0,
+      "karen": 200.0,
+      "default": 250.0
+    },
+    "business_hours": {
+      "weekdays": "8:00 AM - 8:00 PM",
+      "weekends": "9:00 AM - 6:00 PM"
+    }
+  }
+}

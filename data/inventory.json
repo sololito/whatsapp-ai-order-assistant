@@ -1,0 +1,206 @@
+{
+  "items": [
+    {
+      "name": "Bread",
+      "quantity": 0.0,
+      "price": 50.0,
+      "category": "Bakery",
+      "variations": [
+        "White Bread",
+        "Brown Bread",
+        "Whole Wheat Bread"
+      ]
+    },
+    {
+      "name": "Sugar",
+      "quantity": 10.0,
+      "price": 120.0,
+      "unit": "1kg",
+      "category": "Groceries",
+      "variations": [
+        "1kg",
+        "2kg",
+        "5kg"
+      ]
+    },
+    {
+      "name": "Milk",
+      "quantity": 30,
+      "price": 60.0,
+      "unit": "500ml",
+      "category": "Dairy",
+      "variations": [
+        "250ml",
+        "500ml",
+        "1L"
+      ]
+    },
+    {
+      "name": "Tea Leaves",
+      "quantity": 15,
+      "price": 150.0,
+      "unit": "250g",
+      "category": "Groceries",
+      "variations": [
+        "100g",
+        "250g",
+        "500g"
+      ]
+    },
+    {
+      "name": "Cooking Oil",
+      "quantity": 12,
+      "price": 250.0,
+      "unit": "1L",
+      "category": "Groceries",
+      "variations": [
+        "500ml",
+        "1L",
+        "2L",
+        "5L"
+      ]
+    },
+    {
+      "name": "Rice",
+      "quantity": 40,
+      "price": 200.0,
+      "unit": "1kg",
+      "category": "Grains",
+      "variations": [
+        "1kg",
+        "2kg",
+        "5kg",
+        "10kg"
+      ]
+    },
+    {
+      "name": "Wheat Flour",
+      "quantity": 35,
+      "price": 180.0,
+      "unit": "2kg",
+      "category": "Baking",
+      "variations": [
+        "1kg",
+        "2kg",
+        "5kg"
+      ]
+    },
+    {
+      "name": "Eggs",
+      "quantity": 50,
+      "price": 400.0,
+      "unit": "Tray (30 eggs)",
+      "category": "Dairy",
+      "variations": [
+        "6 eggs",
+        "12 eggs",
+        "30 eggs"
+      ]
+    },
+    {
+      "name": "Tomatoes",
+      "quantity": 60,
+      "price": 20.0,
+      "unit": "1kg",
+      "category": "Vegetables"
+    },
+    {
+      "name": "Onions",
+      "quantity": 45,
+      "price": 25.0,
+      "unit": "1kg",
+      "category": "Vegetables"
+    },
+    {
+      "name": "Potatoes",
+      "quantity": 40,
+      "price": 30.0,
+      "unit": "1kg",
+      "category": "Vegetables"
+    },
+    {
+      "name": "Chicken",
+      "quantity": 15,
+      "price": 600.0,
+      "unit": "1kg",
+      "category": "Meat"
+    },
+    {
+      "name": "Beef",
+      "quantity": 10,
+      "price": 800.0,
+      "unit": "1kg",
+      "category": "Meat"
+    },
+    {
+      "name": "Fish",
+      "quantity": 20,
+      "price": 700.0,
+      "unit": "1kg",
+      "category": "Seafood"
+    },
+    {
+      "name": "Mineral Water",
+      "quantity": 100,
+      "price": 30.0,
+      "unit": "500ml",
+      "category": "Beverages",
+      "variations": [
+        "500ml",
+        "1L",
+        "5L"
+      ]
+    },
+    {
+      "name": "Soda",
+      "quantity": 80,
+      "price": 60.0,
+      "unit": "500ml",
+      "category": "Beverages",
+      "variations": [
+        "300ml",
+        "500ml",
+        "1.5L",
+        "2L"
+      ]
+    },
+    {
+      "name": "Toothpaste",
+      "quantity": 25,
+      "price": 150.0,
+      "unit": "100g",
+      "category": "Personal Care"
+    },
+    {
+      "name": "Soap",
+      "quantity": 35,
+      "price": 80.0,
+      "unit": "bar",
+      "category": "Personal Care",
+      "variations": [
+        "Bar Soap",
+        "Liquid Soap"
+      ]
+    },
+    {
+      "name": "Toilet Paper",
+      "quantity": 40,
+      "price": 200.0,
+      "unit": "4 rolls",
+      "category": "Household"
+    },
+    {
+      "name": "Detergent",
+      "quantity": 30,
+      "price": 250.0,
+      "unit": "500g",
+      "category": "Household",
+      "variations": [
+        "250g",
+        "500g",
+        "1kg"
+      ]
+    }
+  ],
+  "last_updated": "2025-07-20T21:27:08+03:00"
+}

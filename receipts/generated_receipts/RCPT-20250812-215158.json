@@ -1,0 +1,41 @@
+{
+  "receipt_id": "RCPT-20250812-215158",
+  "date": "2025-08-12 21:51:58",
+  "customer": null,
+  "items": [
+    {
+      "name": "Soda",
+      "quantity": 1.0,
+      "price": 60.0,
+      "total": 60.0,
+      "unit": "500ml"
+    }
+  ],
+  "subtotal": 60.0,
+  "delivery_fee": 250.0,
+  "total": 310.0,
+  "payment_method": "M-Pesa",
+  "payment_status": "completed",
+  "delivery_option": {
+    "option": "delivery",
+    "address": "soo",
+    "fee": 250.0
+  },
+  "shop_info": {
+    "shop_name": "SmartShop Corner",
+    "address": "123 Main Street, Nairobi",
+    "phone": "+254700123456",
+    "email": "info@smartshop.com",
+    "shopkeeper_phone": "+254712345678",
+    "delivery_fees": {
+      "nairobi cbd": 100.0,
+      "westlands": 150.0,
+      "karen": 200.0,
+      "default": 250.0
+    },
+    "business_hours": {
+      "weekdays": "8:00 AM - 8:00 PM",
+      "weekends": "9:00 AM - 6:00 PM"
+    }
+  }
+}

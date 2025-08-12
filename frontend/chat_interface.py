@@ -266,33 +266,64 @@ class SmartShopBot:
     async def _process_delivery_address(self, update: Update, context: CallbackContext, session: Dict, message: str) -> None:
         """Process delivery address"""
         try:
-            if not message.strip():
+            if not message or not message.strip():
                 await update.message.reply_text("Please provide a valid delivery address.")
                 return
             
+            address = message.strip()
+            logger.info(f"Processing delivery address: {address}")
+            
             # Calculate delivery fee based on address
-            delivery_details = self.delivery.set_delivery_option('delivery', message.strip())
+            try:
+                delivery_details = self.delivery.set_delivery_option('delivery', address)
+                logger.info(f"Delivery details: {delivery_details}")
+            except Exception as e:
+                logger.error(f"Error calculating delivery fee: {e}", exc_info=True)
+                await update.message.reply_text(
+                    "Sorry, there was an error calculating the delivery fee. "
+                    "Please try again with a different address or contact support."
+                )
+                return
             
             # Update session with delivery details
             session['order']['delivery_option'] = {
                 'option': 'delivery',
-                'address': message.strip()
+                'address': address,
+                'fee': delivery_details.get('fee', 0)
             }
             
+            # Also store the address directly in the order for easier access
+            session['order']['delivery_address'] = address
+            
             # Set the delivery fee in the order
-            session['order']['delivery_fee'] = delivery_details.get('fee', 0)
+            delivery_fee = float(delivery_details.get('fee', 0))
+            session['order']['delivery_fee'] = delivery_fee
             
             # Calculate and update the total
-            subtotal = sum(item.get('total', 0) for item in session['order'].get('items', []))
+            subtotal = float(sum(float(item.get('total', 0)) for item in session['order'].get('items', [])))
             session['order']['subtotal'] = subtotal
-            session['order']['total'] = subtotal + session['order']['delivery_fee']
+            session['order']['total'] = subtotal + delivery_fee
             
+            # Log the updated order for debugging
+            logger.info(f"Updated order with delivery address: {session['order']}")
+            
+            # Move to confirmation state
             session['state'] = 'CONFIRMATION'
+            
+            # Request confirmation with the updated order details
             await self._request_confirmation(update, context, session)
             
         except Exception as e:
             logger.error(f"Error processing delivery address: {e}", exc_info=True)
-            await update.message.reply_text("Sorry, there was an error processing your delivery address. Please try again.")
+            await update.message.reply_text(
+                "❌ Sorry, there was an error processing your delivery address. "
+                "Please try again or type /start to begin a new order."
+            )
+            session['state'] = 'START'
+            await update.message.reply_text(
+                "Sorry, there was an error processing your delivery address. "
+                "Please try again or type /start to begin a new order."
+            )
 
     async def _process_pickup_option(self, update: Update, context: CallbackContext, session: Dict) -> None:
         """Process pickup option"""
@@ -914,12 +945,18 @@ class SmartShopBot:
         
         try:
             if query.data == 'delivery':
+                # Update the session with delivery option
                 session['order']['delivery_option'] = {
                     'option': 'delivery',
                     'address': ''
                 }
+                # Set the state to DELIVERY_ADDRESS to expect the address in the next message
                 session['state'] = 'DELIVERY_ADDRESS'
-                await query.edit_message_text("Please enter your delivery address:")
+                # Send a message asking for the delivery address
+                await query.edit_message_text(
+                    "🚚 Please enter your delivery address:\n\n"
+                    "Please provide your complete delivery address including any landmarks or directions."
+                )
                 
             elif query.data == 'pickup':
                 session['order']['delivery_option'] = {

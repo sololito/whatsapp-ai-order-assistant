@@ -106,7 +106,7 @@
     },
     {
       "name": "Onions",
-      "quantity": 45,
+      "quantity": 43.0,
       "price": 25.0,
       "unit": "1kg",
       "category": "Vegetables"
@@ -120,14 +120,14 @@
     },
     {
       "name": "Chicken",
-      "quantity": 15,
+      "quantity": 14.0,
       "price": 600.0,
       "unit": "1kg",
       "category": "Meat"
     },
     {
       "name": "Beef",
-      "quantity": 10,
+      "quantity": 0.0,
       "price": 800.0,
       "unit": "1kg",
       "category": "Meat"
@@ -141,7 +141,7 @@
     },
     {
       "name": "Mineral Water",
-      "quantity": 100,
+      "quantity": 99.0,
       "price": 30.0,
       "unit": "500ml",
       "category": "Beverages",
@@ -153,7 +153,7 @@
     },
     {
       "name": "Soda",
-      "quantity": 80,
+      "quantity": 79.0,
       "price": 60.0,
       "unit": "500ml",
       "category": "Beverages",
@@ -173,7 +173,7 @@
     },
     {
       "name": "Soap",
-      "quantity": 35,
+      "quantity": 34.0,
       "price": 80.0,
       "unit": "bar",
       "category": "Personal Care",
